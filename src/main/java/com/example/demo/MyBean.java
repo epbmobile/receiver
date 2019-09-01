@@ -10,9 +10,13 @@ public class MyBean {
 
 	private final Log log = LogFactory.getLog(MyBean.class);
 
-	@RabbitListener(queues = "dev")
-	public void process(String msg) {
+	@RabbitListener(queues = "queue1")
+	public void processQueue1(String msg) {
 		this.log.info(msg);
 	}
 
+	@RabbitListener(queues = "queue2")
+	public void processQueue2(String msg) {
+		this.log.info(msg);
+	}
 }
